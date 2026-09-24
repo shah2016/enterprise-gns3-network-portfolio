@@ -1,3 +1,3 @@
 # Topology Diagram
 
-Add the final GNS3 topology screenshot/export here.
+![Enterprise GNS3 Network Topology](enterprise-network-topology.png)
