@@ -1,0 +1,81 @@
+BRANCH-S2#show running-config
+Current configuration : 1993 bytes
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+!
+hostname BRANCH-S2
+!
+no aaa new-model
+!
+no ip icmp rate-limit unreachable
+no ip domain-lookup
+ip cef
+no ipv6 cef
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+interface Ethernet0/0
+ description TRUNK_TO_BRANCH-2
+ switchport trunk allowed vlan 10,20,30,40,99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface Ethernet0/1
+ description USER_PC
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+!
+interface Ethernet0/2
+ description SERVER
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface Ethernet0/3
+ description VOICE_DEVICE
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast
+!
+interface Ethernet1/0
+ description GUEST_DEVICE
+ switchport access vlan 40
+ switchport mode access
+ spanning-tree portfast
+!
+interface Ethernet1/1
+ description MANAGEMENT_DEVICE
+ switchport access vlan 99
+ switchport mode access
+ spanning-tree portfast
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+control-plane
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login
+!
+end

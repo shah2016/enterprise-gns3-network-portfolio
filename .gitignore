@@ -1,0 +1,7 @@
+*.gns3project
+*.gns3project.tmp
+*.qcow2
+*.img
+*.iso
+.DS_Store
+Thumbs.db
