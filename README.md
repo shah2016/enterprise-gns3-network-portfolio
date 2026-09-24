@@ -309,6 +309,7 @@ enterprise-gns3-network-portfolio/
 │
 ├── README.md
 ├── enterprise-network-topology.png
+├── .gitignore
 │
 ├── configs/
 │   ├── HQ-R1.txt
@@ -334,10 +335,14 @@ enterprise-gns3-network-portfolio/
 │   └── 08-VALIDATION-REPORT.md
 │
 └── evidence/
-    └── README.md
+    ├── README.md
+    ├── 01-ospf-neighbors.png
+    ├── 02-hsrp-active-standby.png
+    ├── 03-hq-routing-table.png
+    ├── 04-etherchannel-lacp.png
+    ├── 05-spanning-tree-vlan10.png
+    └── 06-end-to-end-connectivity.png
 ```
-
----
 
 ## ⚙️ Device Configurations
 
